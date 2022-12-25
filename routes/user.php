@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\admin;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\user;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth', 'verified', 'CheckRole:admin,superadmin'])->group(function () {
-    Route::get('/admin', [admin::class, 'admin']);
+Route::middleware(['auth', 'verified', 'CheckRole:user,admin,superadmin'])->group(function () {
+    Route::get('/user', [user::class, 'index']);
+    Route::get('/add-data', function () {
+        return view('user.add-page');
+    })->name('add-page');
+    Route::post('/store-data', [user::class, 'store'])->name('store-data');
 });

@@ -52,4 +52,8 @@ class User extends Authenticatable
     {
         return $this->hasRole('writer');;
     }
+    public function student()
+    {
+        return $this->hasMany(student::class);
+    }
 }
