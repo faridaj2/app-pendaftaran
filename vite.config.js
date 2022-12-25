@@ -8,9 +8,9 @@ export default defineConfig({
             input: [
                 'src/app.css',
                 'src/app.js',
-                liveReload('./resources/views/**/*.blade.php'),
             ],
             refresh: true,
         }),
+        liveReload('resources/views/**/*.php'),
     ],
 });
