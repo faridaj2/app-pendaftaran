@@ -39,13 +39,38 @@ class user extends Controller
     }
     public function detail(Request $request, $id)
     {
-        return view('user.detail-siswa');
+        $data = [
+            'form' => 'edit_siswa',
+            'siswa' => student::find($id)
+        ];
+        return view('user.detail-siswa', $data);
     }
     public function edit_siswa(Request $request)
     {
         $data = [
-            'form' => 'edit_data'
+            'form' => 'edit_siswa',
+            'siswa' => student::find($request->id)
+
         ];
-        return view('user.add-page', $data);
+        return view('user.edit-page', $data);
+    }
+    public function update_siswa(Request $request){
+        student::find($request->id)
+        ->update([
+            'nama' => $request->nama,
+            'kk' => $request->kk,
+            'nik' => $request->nik,
+            'nisn' => $request->nisn,
+            'kelamin' => $request->kelamin,
+            'pob' => $request->pob,
+            'dob' => $request->dob,
+            'alamat' => $request->alamat,
+            'ayah' => $request->ayah,
+            'ibu' => $request->ibu,
+            'hp_ayah' => $request->hp_ayah,
+            'hp_ibu' => $request->hp_ibu
+        ]);
+        return redirect('/user');
+
     }
 }

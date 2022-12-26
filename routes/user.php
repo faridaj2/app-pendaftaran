@@ -32,4 +32,6 @@ Route::middleware(['auth', 'verified', 'CheckRole:user,admin,superadmin'])->grou
         return redirect()->back();
     })->name('hapus_siswa');
     Route::post('/edit', [user::class, 'edit_siswa'])->name('edit_siswa');
+    Route::put('/store-data', [user::class, 'update_siswa'])->name('update_siswa');
+
 });
