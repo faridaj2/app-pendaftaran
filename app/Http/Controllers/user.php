@@ -41,4 +41,11 @@ class user extends Controller
     {
         return view('user.detail-siswa');
     }
+    public function edit_siswa(Request $request)
+    {
+        $data = [
+            'form' => 'edit_data'
+        ];
+        return view('user.add-page', $data);
+    }
 }

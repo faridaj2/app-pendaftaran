@@ -13,7 +13,7 @@
                     <p class="mb-0">Masukkan Data Santri/Santriwati anda</p>
                 </div>
                 <div class="flex-auto p-6 ">
-                    <form role="form" action="{{ route('store-data') }}" method="POST">
+                    <form role="form" action="{{ route($form) }}" method="POST">
                         @csrf
                         <label class="mb-2 ml-1 font-bold text-xs text-slate-700">Nama</label>
                         <div class="mb-4">

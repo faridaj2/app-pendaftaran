@@ -43,13 +43,13 @@
                                             Nama</th>
                                         <th
                                             class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                                            NIK</th>
-                                        <th
-                                            class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
                                             Ayah</th>
                                         <th
                                             class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
                                             Ibu</th>
+                                        <th
+                                            class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                        </th>
                                         <th
                                             class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-gray-200 border-solid shadow-none tracking-none whitespace-nowrap text-slate-400 opacity-70">
                                         </th>
@@ -67,7 +67,8 @@
                                                             alt="user1">
                                                     </div>
                                                     <div class="flex flex-col justify-center">
-                                                        <h6 class="mb-0 leading-normal text-sm">{{ $item->nama }}</h6>
+                                                        <a href="/detail/{{ $item->id }}"
+                                                            class="mb-0 leading-normal text-sm">{{ $item->nama }}</a>
                                                         <p class="mb-0 leading-tight text-xs text-slate-400">
                                                             {{ $item->alamat }}</p>
                                                     </div>
@@ -75,28 +76,42 @@
                                             </td>
                                             <td
                                                 class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                                <p class="mb-0 font-semibold leading-tight text-xs">{{ $item->nik }}
-                                                </p>
-                                            </td>
-                                            <td
-                                                class="p-2 leading-normal text-center align-middle bg-transparent border-b text-sm whitespace-nowrap shadow-transparent">
                                                 <p class="mb-0 font-semibold leading-tight text-xs">{{ $item->ayah }}
                                                 </p>
                                             </td>
                                             <td
-                                                class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                                <span
-                                                    class="font-semibold leading-tight text-xs text-slate-400">{{ $item->ibu }}</span>
+                                                class="p-2 leading-normal text-center align-middle bg-transparent border-b text-sm whitespace-nowrap shadow-transparent">
+                                                <p class="mb-0 font-semibold leading-tight text-xs">{{ $item->ibu }}
+                                                </p>
                                             </td>
                                             <td
                                                 class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                <form action="{{ route('edit_siswa') }}" method="post"
+                                                    class="p-0 m-0 inline-block">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                                    <button type="submit" href=""
+                                                        class="font-semibold leading-tight text-xs text-slate-400">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+
+                                            <td
+                                                class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                                 <span class="flex flex-col">
-                                                    <a href="javascript:;"
-                                                        class="font-semibold leading-tight text-xs text-slate-400">Edit
-                                                    </a>
-                                                    <a href="javascript:;"
-                                                        class="font-semibold leading-tight text-xs text-slate-400">Hapus
-                                                    </a>
+
+                                                    <form action="{{ route('hapus_siswa') }}" method="post"
+                                                        class="p-0 m-0">
+                                                        @csrf
+                                                        <input type="hidden" name="id"
+                                                            value="{{ $item->id }}">
+                                                        <button type="submit" href=""
+                                                            class="font-semibold leading-tight text-xs text-red-400">
+                                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                                        </button>
+                                                    </form>
+
                                                 </span>
 
                                             </td>
