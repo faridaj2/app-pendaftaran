@@ -1,4 +1,7 @@
 <x-UserLayout>
+    <x-slot name="title">
+        Halaman User
+    </x-slot>
     <x-slot name="body">
         <div class="flex flex-warp -mx-3 mb-2">
             <div class="w-full max-w-full px-3 mb-6 sm:flex-none xl:mb-0">

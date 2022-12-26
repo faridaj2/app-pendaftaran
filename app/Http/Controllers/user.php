@@ -12,7 +12,8 @@ class user extends Controller
     {
 
         $data = [
-            'data' => Auth::user()->student
+            'data' => Auth::user()->student,
+            'title' => 'Halaman User'
         ];
         return view('user.index', $data);
     }
@@ -35,5 +36,9 @@ class user extends Controller
             'hp_ibu' => $request->hp_ibu
         ]);
         return redirect('/user');
+    }
+    public function detail(Request $request, $id)
+    {
+        return view('user.detail-siswa');
     }
 }

@@ -1,36 +1,28 @@
-(function () {
-  var isWindows = navigator.platform.indexOf("Win") > -1 ? true : false;
+var sidenav = document.querySelector("aside");
+var sidenav_trigger = document.querySelector("[sidenav-trigger]");
+var sidenav_close_button = document.querySelector("[sidenav-close]");
+var burger = sidenav_trigger.firstElementChild;
+var top_bread = burger.firstElementChild;
+var bottom_bread = burger.lastElementChild;
 
-  if (isWindows) {
-    // if we are on windows OS we activate the perfectScrollbar function
-    if (document.querySelector("main")) {
-      var mainpanel = document.querySelector("main");
-      var ps = new PerfectScrollbar(mainpanel);
-    }
+sidenav_trigger.addEventListener("click", function () {
 
-    if (document.querySelectorAll(".overflow-auto")[0]) {
-      var sidebar = document.querySelectorAll(".overflow-auto");
-      var i = 0;
-      var ps;
-      sidebar.forEach((element) => {
-        ps[i++] = new PerfectScrollbar(element);
-      });
-    }
-    if (document.querySelectorAll(".overflow-y-auto")[0]) {
-      var sidebar = document.querySelectorAll(".overflow-y-auto");
-      var i = 0;
-      var ps;
-      sidebar.forEach((element) => {
-        ps[i++] = new PerfectScrollbar(element);
-      });
-    }
-    if (document.querySelectorAll(".overflow-x-auto")[0]) {
-      var sidebar = document.querySelectorAll(".overflow-x-auto");
-      var i = 0;
-      var ps;
-      sidebar.forEach((element) => {
-        ps[i++] = new PerfectScrollbar(element);
-      });
+  top_bread.classList.toggle("translate-x-[5px]");
+  bottom_bread.classList.toggle("translate-x-[5px]");
+  sidenav.classList.toggle("translate-x-0");
+  sidenav.classList.toggle("shadow-soft-xl");
+  sidenav_close_button.classList.toggle('hidden');
+});
+sidenav_close_button.addEventListener("click", function () {
+  sidenav_trigger.click();
+
+});
+
+
+window.addEventListener("click", function (e) {
+  if (!sidenav.contains(e.target) && !sidenav_trigger.contains(e.target)) {
+    if (sidenav.classList.contains("translate-x-0")) {
+      sidenav_trigger.click();
     }
   }
-})();
+});

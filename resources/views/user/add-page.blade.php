@@ -1,6 +1,9 @@
 <x-UserLayout>
+    <x-slot name="title">
+        Tambah Data
+    </x-slot>
     <x-slot name="body">
-        <div class="flex flex-col w-full max-w-full px-3 mx-auto md:flex-0 shrink-0 md:w-6/12 lg:w-5/12 xl:w-4/12">
+        <div class="flex flex-col w-full max-w-full px-3 md:flex-0 shrink-0 md:w-6/12 lg:w-5/12 xl:w-4/12">
             <div
                 class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border">
                 <div class="pb-0 mb-0 bg-transparent border-b-0 rounded-t-2xl">
@@ -9,7 +12,7 @@
                         Halo</h3>
                     <p class="mb-0">Masukkan Data Santri/Santriwati anda</p>
                 </div>
-                <div class="flex-auto p-6">
+                <div class="flex-auto p-6 ">
                     <form role="form" action="{{ route('store-data') }}" method="POST">
                         @csrf
                         <label class="mb-2 ml-1 font-bold text-xs text-slate-700">Nama</label>
@@ -101,14 +104,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="p-6 px-1 pt-0 text-center bg-transparent border-t-0 border-t-solid rounded-b-2xl lg:px-2">
-                    <p class="mx-auto mb-6 leading-normal text-sm">
-                        Don't have an account?
-                        <a href="../pages/sign-up.html"
-                            class="relative z-10 font-semibold text-transparent bg-gradient-to-tl from-blue-600 to-cyan-400 bg-clip-text">Sign
-                            up</a>
-                    </p>
-                </div>
+
             </div>
         </div>
     </x-slot>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
-    <title>Soft UI Dashboard Tailwind</title>
+    <title>{{ $title }}</title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Font Awesome Icons -->
@@ -33,7 +33,7 @@
             <i class="absolute top-0 right-0 p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden hidden"
                 sidenav-close="" aria-hidden="true"></i>
             <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="javascript:;" target="_blank">
-                <img src="./assets/img/logo-ct.png"
+                <img src="{{ asset('/assets/img/logo-ct.png') }}"
                     class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo">
                 <span class="ml-1 font-semibold transition-all duration-200 ease-nav-brand">Soft UI Dashboard</span>
             </a>
@@ -45,7 +45,7 @@
             <ul class="flex flex-col pl-0 mb-0">
                 <li class="mt-0.5 w-full">
                     <a class="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors"
-                        href="./pages/dashboard.html">
+                        href="/user">
                         <div
                             class="bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
@@ -103,12 +103,12 @@
                     <!-- breadcrumb -->
                     <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
                         <li class="leading-normal text-sm">
-                            <a class="opacity-50 text-slate-700" href="javascript:;">Pages</a>
+                            <a class="opacity-50 text-slate-700" href="javascript:;">User</a>
                         </li>
                         <li class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
-                            aria-current="page">Dashboard</li>
+                            aria-current="page">{{ Request::path() }}</li>
                     </ol>
-                    <h6 class="mb-0 font-bold capitalize">Dashboard</h6>
+                    <h6 class="mb-0 font-bold capitalize"></h6>
                 </nav>
 
                 <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
@@ -152,6 +152,7 @@
         <div class="w-full px-6 py-6 mx-auto">
             {{ $body }}
         </div>
+        <script src="{{ asset('assets/js/sidenav-burger.js') }}"></script>
 
         <footer class="pt-4">
             <div class="w-full px-6 mx-auto">
