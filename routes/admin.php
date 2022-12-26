@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['auth', 'verified', 'CheckRole:admin,superadmin'])->group(function () {
-    Route::get('/admin', [admin::class, 'admin']);
+    Route::get('/admin', [admin::class, 'admin'])->name('admin.index');
 });
