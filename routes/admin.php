@@ -18,6 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::controller(admin::class)->middleware(['auth', 'verified', 'CheckRole:admin,superadmin'])->group(function () {
     Route::get('/admin', 'admin')->name('admin.index');
     Route::get('/all-student', 'all_student')->name('admin.all_student');
-    Route::get('/register', 'register')->name('admin.register');
+    Route::get('/std_register', 'register')->name('admin.register');
     Route::get('/not_register', 'not_register')->name('admin.not_register');
 });
