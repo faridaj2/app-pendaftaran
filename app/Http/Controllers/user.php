@@ -70,6 +70,7 @@ class user extends Controller
             'hp_ayah' => $request->hp_ayah,
             'hp_ibu' => $request->hp_ibu
         ]);
+       
         return redirect('/user');
 
     }

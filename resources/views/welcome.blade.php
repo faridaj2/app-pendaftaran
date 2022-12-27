@@ -78,7 +78,7 @@
                             ">Dashboard</a>
                         </li>
                     @else
-                        <li><a>Masuk</a></li>
+                        <li><a href="/user">Masuk</a></li>
                     @endif
                 </ul>
             </div>
@@ -89,7 +89,7 @@
         <div><img class="w-full" src="https://darussalam2.com/assets/slider/2.png"></div>
         <div><img class="w-full" src="https://darussalam2.com/assets/slider/3.png"></div>
     </div> --}}
-
+    <div class="translate-x-0 shadow-soft-xl"></div>
 
 
 

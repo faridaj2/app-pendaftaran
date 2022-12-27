@@ -21,9 +21,10 @@
     <!-- Popper -->
     <script src="{{ asset('assets/js/popper.js') }}"></script>
     <!-- Main Styling -->
-    <link href="{{ asset('assets/css/soft-ui-dashboard-tailwind.css?v=1.0.4') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/soft-ui-dashboard-tailwind.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('js/app.js') }}">
+    <link rel="stylesheet" href="{{ asset('assets/js/sidenav-burger.js') }}">
 </head>
 
 <body class="m-0 font-sans antialiased font-normal text-base leading-default bg-gray-50 text-slate-500">
@@ -216,7 +217,5 @@
 <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}" async></script>
 <!-- github button -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-<!-- main script file  -->
-<script src="{{ asset('assets/js/soft-ui-dashboard-tailwind.js?v=1.0.4') }}" async></script>
 
 </html>

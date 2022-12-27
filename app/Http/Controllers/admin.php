@@ -20,10 +20,16 @@ class admin extends Controller
         ];
         return view('admin.index', $data);
     }
-    public function all_student()
-    {
+    public function all_student(Request $req)
+    {   
+        if($req->search !== ''){
+            $student = student::search($req->search)->get();
+        }else{
+            $student = student::get();
+            dd('$student');
+        }
         $data = [
-            'data' => student::get()
+            'data' => $student
         ];
         return view('admin.all_student', $data);
     }
@@ -40,5 +46,20 @@ class admin extends Controller
             'data' => student::where('status', 'wait')->get()
         ];
         return view('admin.not_register', $data);
+    }
+    public function toggle_status(Request $request)
+    {
+        $student = student::find($request->id);
+        if($student->status == 'wait')
+        {
+            $student->update([
+                'status' => 'fix'
+            ]);
+        }else{
+            $student->update([
+                'status' => 'wait'
+            ]);
+        }
+        return redirect()->back();
     }
 }

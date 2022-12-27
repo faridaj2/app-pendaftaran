@@ -20,4 +20,5 @@ Route::controller(admin::class)->middleware(['auth', 'verified', 'CheckRole:admi
     Route::get('/all-student', 'all_student')->name('admin.all_student');
     Route::get('/std_register', 'register')->name('admin.register');
     Route::get('/not_register', 'not_register')->name('admin.not_register');
+    Route::post('/edit_status', 'toggle_status')->name('toggle_status');
 });
