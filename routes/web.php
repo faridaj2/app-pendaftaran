@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\GController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Contracts\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,12 @@ Route::middleware(['auth', 'verified', 'CheckRole:user,admin,superuser'])->group
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::controller(GController::class)->group(function(){
+    Route::get('auth/google', 'redirToGoogle')->name('google.auth');
+    Route::get('auth/google/callback', 'googleCallback')->name('google.callback');
+
 });
 
 require __DIR__ . '/auth.php';
